@@ -17,6 +17,62 @@
    <div class="btn-container">
 
 
+
+     <style>
+     .container.registration-box {
+         position: relative;
+         overflow: hidden;
+
+         border: 1px solid #2d264d;
+         border-radius: 20px;
+         padding: 40px 25px;
+         max-width: 500px;
+         width: 100%;
+         text-align: center;
+         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+     }
+
+     .container.registration-box::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+
+         background-image: url("https://s107.erome.com/7925/VI0xX4PV/QOs3VGY3.jpg?v=1777422071");
+         background-size: cover;
+         background-position: center center;
+         background-repeat: no-repeat;
+
+         opacity: 0.5;
+
+         z-index: 1;
+     }
+
+     .container.registration-box::after {
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+
+         background: rgba(15, 12, 27, 0.30);
+
+         z-index: 2;
+     }
+
+     .container.registration-box > * {
+         position: relative;
+         z-index: 3;
+     }
+     </style>
+
+
+
+
+
      <script>
      document.addEventListener("DOMContentLoaded", function() {
 
@@ -118,8 +174,8 @@
  }
 
  body {
-     background: linear-gradient(rgba(15, 12, 27, 0.80), rgba(15, 12, 27, 0.80)),
-                 url('https://s61.erome.com/6396/DQleBCqR/TnGyKsY8.jpeg?v=1761797561');
+     background: linear-gradient(rgba(15, 12, 27, 0.80), rgba(15, 12, 27, 0.60)),
+                 url('https://s107.erome.com/7925/VI0xX4PV/QOs3VGY3.jpg?v=1777422071');
      background-size: cover;
      background-position: center;
      background-attachment: fixed;
@@ -128,6 +184,107 @@
      min-height: 100vh;
      padding: 15px 15px;
  }
+
+
+
+ @keyframes rotate3D {
+     from {
+         opacity: 0;
+         transform: perspective(1000px)
+                    rotateX(-20deg)
+                    translateY(50px);
+     }
+
+     to {
+         opacity: 1;
+         transform: perspective(1000px)
+                    rotateX(0deg)
+                    translateY(0);
+     }
+ }
+
+ .container.registration-box{
+     animation: rotate3D 1.3s ease forwards;
+ }
+
+
+
+ @keyframes galleryRotate3D {
+     0% {
+         opacity: 0;
+         transform: perspective(1200px)
+                    rotateY(-35deg)
+                    translateX(-80px)
+                    scale(0.85);
+     }
+
+     60% {
+         opacity: 1;
+         transform: perspective(1200px)
+                    rotateY(8deg)
+                    translateX(0)
+                    scale(1.02);
+     }
+
+     100% {
+         opacity: 1;
+         transform: perspective(1200px)
+                    rotateY(0deg)
+                    scale(1);
+     }
+ }
+
+ .proof-section {
+     opacity: 0;
+     transform-origin: center;
+     animation: galleryRotate3D 1.4s cubic-bezier(.22,.61,.36,1) forwards;
+     animation-delay: 0.5s;
+ }
+
+
+
+
+
+ .container.registration-box {
+     position: relative;
+     overflow: hidden; /* IMPORTANTE */
+     border-radius: 20px;
+ }
+
+ .container.registration-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("https://s107.erome.com/7925/VI0xX4PV/QOs3VGY3.jpg?v=1777422071");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0.5;
+    z-index: 1;
+
+    transform-origin: center center;
+
+    animation: zoomInside 8s ease-in-out infinite;
+}
+
+@keyframes zoomInside {
+    0% {
+        transform: scale(1.15);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+
+
 
  .main-wrapper {
      display: flex;
